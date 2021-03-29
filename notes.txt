@@ -1,0 +1,47 @@
+Documentação
+https://sequelize.org/master/manual/migrations.html
+→ npm run start:dev
+
+→ npm init -y
+Dependencias : 
+→ npm i -S express body-parser morgan
+→ npm i -D nodemon
+→ npm i -g sequelize-cli
+→ npm i --save sequelize pg pg-hstore
+→ npx sequelize-cli init
+→ npx sequelize-cli model:create --name Item --attributes item_id:integer,name:string,weight:float
+    ***Cria model (Items) - …/server/models and …/server/migrations
+    ***Cria item_id (integer), name (string) and weight (float)
+→ createdb db-dev -U postgres
+→ sequelize db:migrate
+
+|**********************************************************************************************|
+|  CRIE E CONECTE-SE A UM DB POSTGRE SQL COM AWS                                               |
+|  https://aws.amazon.com/pt/getting-started/hands-on/create-connect-postgresql-db/            |
+|  RDS = amazon relational databse                                                             |
+|  Tive que criar as permissões na segunrança default para postgresqle habilitar anywhere      |
+|**********************************************************************************************|
+
+***https://claudiajs.com/tutorials/installing.html***
+→ npm install claudia -g
+→ npx claudia generate-serverless-express-proxy --express-module app  
+  ***Prepara o app.js o app.js para o deployment (empacota)
+
+→ npx claudia create --handler lambda.handler --deploy-proxy-api --region us-east-1  --> criando lambda
+→ npm claudia update (para re-deploy)
+
+
+
+
+
+{
+  "lambda": {
+    "role": "aws-example-executor",
+    "name": "aws-example",
+    "region": "us-east-1"
+  },
+  "api": {
+    "id": "m9gn4z2k9l",
+    "url": "https://m9gn4z2k9l.execute-api.us-east-1.amazonaws.com/latest"
+  }
+}
